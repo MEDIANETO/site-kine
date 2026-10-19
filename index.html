@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cabinet de kinésithérapie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Manrope:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f3f7f6;--surface:#fff;--ink:#12302f;--muted:#4d6665;--line:#d3e0de;--brand:#0f5a56;--brand-ink:#fff;--soft:#dcebe8;--wa:#1fa855;--wa-ink:#fff;color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0d1c1b;--surface:#142928;--ink:#e6f2f0;--muted:#9db8b5;--line:#254240;--brand:#5fc4b8;--brand-ink:#08201e;--soft:#1b3836;--wa:#2bbf63;--wa-ink:#04210f;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0d1c1b;--surface:#142928;--ink:#e6f2f0;--muted:#9db8b5;--line:#254240;--brand:#5fc4b8;--brand-ink:#08201e;--soft:#1b3836;--wa:#2bbf63;--wa-ink:#04210f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+html[lang="ar"] body,html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,html[lang="ar"] .logo{font-family:Cairo,Tahoma,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Manrope,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.1rem;text-decoration:none}
+.lang{display:flex;border:2px solid var(--brand);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;padding:7px 14px;font-weight:700;font-size:.92rem;color:var(--brand)}
+.lang button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink)}
+.lang button:focus-visible,.btn:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;font-size:1rem;cursor:pointer}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-ghost{border-color:var(--brand);color:var(--brand)}
+.btn-brand{background:var(--brand);color:var(--brand-ink)}
+.btn svg{width:22px;height:22px;flex:none}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:30px 0 60px}
+.hero h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;letter-spacing:-.02em}
+html[lang="ar"] .hero h1{letter-spacing:0;line-height:1.3}
+.hero p{color:var(--muted);max-width:46ch;margin:20px 0 28px;font-size:1.08rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.hours{background:var(--brand);color:var(--brand-ink);border-radius:28px;padding:28px}
+.hours h2{font-size:1.4rem;margin-bottom:14px}
+.hours dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px}
+.hours dt{opacity:.85}.hours dd{margin:0;font-weight:700;text-align:end}
+section{padding:56px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+.info{display:grid;gap:18px;align-content:start}
+.info h3{font-size:.95rem;color:var(--muted);font-weight:500;margin-bottom:2px}
+.info p{margin:0;font-weight:500}
+#tel{direction:ltr;unicode-bidi:plaintext;text-align:start}
+.map{position:relative;border-radius:22px;overflow:hidden;min-height:320px;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:24px}
+.map svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:relative;display:grid;gap:14px;justify-items:center}
+.pin>svg{width:54px;height:54px;color:var(--brand)}
+.pin strong{font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem}
+html[lang="ar"] .pin strong{font-family:Cairo,sans-serif}
+footer{padding:28px 0 110px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.float{position:fixed;inset-inline-end:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+@media (max-width:760px){.hero,.contact{grid-template-columns:1fr}.hero{padding-bottom:36px}.logo small{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.side{display:grid;gap:16px}.illus{margin:0;border-radius:28px;overflow:hidden;background:var(--soft)}.illus img{display:block;width:100%;height:auto}
+.bighero{position:relative;border-radius:28px;overflow:hidden;min-height:560px;display:flex;align-items:flex-end;background:#0f5a56;margin:6px 0 20px}
+.bighero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.bighero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,30,28,.9) 0%,rgba(6,30,28,.55) 45%,rgba(6,30,28,0) 78%)}
+.ov{position:relative;z-index:1;padding:44px;color:#fff;max-width:660px}
+.ov h1{font-size:clamp(2.2rem,5.5vw,3.7rem);font-weight:700;letter-spacing:-.02em;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+html[lang="ar"] .ov h1{letter-spacing:0;line-height:1.3}
+.ov p{color:#e6f2f0;margin:16px 0 26px;max-width:46ch;font-size:1.1rem}
+.ov .btn-ghost{border-color:#fff;color:#fff}
+.hours{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 40px;border-radius:22px;padding:22px 28px;margin-bottom:40px}
+.hours h2{margin:0}
+.hours dl{min-width:260px}
+@media (max-width:760px){
+.bighero{display:block;min-height:0;background:none;border-radius:20px}
+.bighero img{position:static;height:auto;border-radius:20px}
+.bighero::after{display:none}
+.ov{padding:22px 2px 6px;color:var(--ink);max-width:none}
+.ov h1{text-shadow:none}
+.ov p{color:var(--muted)}
+.ov .btn-ghost{border-color:var(--brand);color:var(--brand)}
+.hours{display:block}.hours h2{margin-bottom:14px}
+}
+header{display:block;padding:0;position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:12px;padding-bottom:6px}
+.nav{display:flex;gap:8px;overflow-x:auto;padding:4px 20px 12px;max-width:1040px;margin:0 auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;padding:8px 16px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;border:1.5px solid var(--line);background:var(--surface);cursor:pointer}
+.nav a:hover{border-color:var(--brand)}
+.nav a.wa{background:var(--wa);color:var(--wa-ink);border-color:var(--wa)}
+[id]{scroll-margin-top:130px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.4Z"/></symbol></svg>
+
+<header>
+<div class="wrap hd">
+    <a class="logo" href="#top"><span id="name"></span> <small data-i18n="role"></small></a>
+    <div class="lang" role="group" aria-label="Langue / Language / اللغة">
+      <button data-lang="fr" aria-pressed="false">FR</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+      <button data-lang="ar" aria-pressed="false">عربي</button>
+    </div>
+  </div>
+<nav class="nav" aria-label="Menu">
+  <a href="#top" data-i18n="nHome"></a>
+  <a href="#care" data-i18n="nCare"></a>
+  <a href="#hours" data-i18n="nHours"></a>
+  <a href="#contact" data-i18n="nContact"></a>
+  <a class="wa" data-wa>WhatsApp</a>
+</nav>
+</header>
+<div class="wrap">
+
+  <div class="bighero" id="top">
+    <img src="images/accueil.jpg" alt="Kinésithérapeute soignant le genou d’un patient dans son cabinet" width="1408" height="768">
+    <div class="ov">
+      <h1 data-i18n="h1"></h1>
+      <p data-i18n="lead"></p>
+      <div class="actions">
+        <a class="btn btn-wa" data-wa><svg aria-hidden="true"><use href="#wa"/></svg><span data-i18n="cta"></span></a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="seeAddr"></a>
+      </div>
+    </div>
+  </div>
+  <aside class="hours" id="hours">
+    <h2 data-i18n="hoursT"></h2>
+    <dl>
+      <dt data-i18n="d1"></dt><dd data-i18n="h1v"></dd>
+      <dt data-i18n="d2"></dt><dd data-i18n="h2v"></dd>
+      <dt data-i18n="d3"></dt><dd data-i18n="h3v"></dd>
+    </dl>
+  </aside>
+</div>
+
+<section id="care">
+  <div class="wrap">
+    <h2 data-i18n="careT"></h2>
+    <div class="grid">
+      <div class="card"><h3 data-i18n="c1t"></h3><p data-i18n="c1d"></p></div>
+      <div class="card"><h3 data-i18n="c2t"></h3><p data-i18n="c2d"></p></div>
+      <div class="card"><h3 data-i18n="c3t"></h3><p data-i18n="c3d"></p></div>
+      <div class="card"><h3 data-i18n="c4t"></h3><p data-i18n="c4d"></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2 data-i18n="contactT"></h2>
+    <div class="contact">
+      <div class="info">
+        <div><h3 data-i18n="addrL"></h3><p id="addr"></p></div>
+        <div><h3 data-i18n="telL"></h3><p id="tel"></p></div>
+        <div class="actions">
+          <a class="btn btn-wa" data-wa><svg aria-hidden="true"><use href="#wa"/></svg><span data-i18n="write"></span></a>
+          <a class="btn btn-ghost" id="route" target="_blank" rel="noopener" data-i18n="route"></a>
+        </div>
+      </div>
+      <div class="map">
+        <svg class="bg" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"><path d="M-10 90 L410 60"/><path d="M-10 230 L410 260"/><path d="M110 -10 L140 330"/><path d="M290 -10 L260 330"/></g>
+          <g fill="none" stroke="var(--line)" stroke-width="4"><path d="M-10 160 L410 150"/><path d="M200 -10 L205 330"/></g>
+        </svg>
+        <div class="pin">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5Z"/></svg>
+          <strong id="name2"></strong>
+          <a class="btn btn-brand" id="mapbtn" target="_blank" rel="noopener" data-i18n="openMap"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap" data-i18n="foot"></div></footer>
+
+<a class="btn btn-wa float" data-wa><svg aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
+
+<script>
+// ✏️ MODIFIEZ ICI : informations du cabinet / Edit here / عدّل هنا
+var CONFIG = {
+  name: {fr:"Dr Youssef El Amrani", en:"Dr Youssef El Amrani", ar:"د. يوسف العمراني"},
+  phoneIntl: "212600000000",
+  phoneDisplay: "+212 6 00 00 00 00",
+  address: {fr:"24 Rue des Orangers, Résidence Atlas, 1er étage", en:"24 Rue des Orangers, Atlas Residence, 1st floor", ar:"24 زنقة الليمون، إقامة الأطلس، الطابق الأول"},
+  mapQuery: "24 Rue des Orangers, Résidence Atlas"
+};
+var T = {
+fr:{nHome:"Accueil",nCare:"Soins",nHours:"Horaires",nContact:"Contact",role:"· Kinésithérapeute",h1:"Retrouvez votre mobilité, sans douleur.",lead:"Kinésithérapeute diplômé, je vous reçois sur rendez-vous pour traiter vos douleurs, votre rééducation après blessure ou opération, et vous aider à bouger librement.",cta:"Prendre RDV sur WhatsApp",seeAddr:"Voir l’adresse",hoursT:"Horaires du cabinet",d1:"Lundi – Vendredi",h1v:"9h – 19h",d2:"Samedi",h2v:"9h – 13h",d3:"Dimanche",h3v:"Fermé",careT:"Prises en charge",c1t:"Douleurs du dos et du cou",c1d:"Lombalgie, cervicalgie, sciatique, hernie discale.",c2t:"Rééducation après blessure",c2d:"Entorse, fracture, tendinite, chirurgie du genou ou de l’épaule.",c3t:"Kinésithérapie du sport",c3d:"Reprise progressive, prévention et récupération.",c4t:"Rééducation neurologique",c4d:"Suivi après AVC, troubles de l’équilibre, paralysie faciale.",contactT:"Adresse et contact",addrL:"Adresse",telL:"Téléphone / WhatsApp",write:"Écrire sur WhatsApp",route:"Itinéraire",openMap:"Ouvrir dans Google Maps",foot:"© Cabinet de kinésithérapie. Sur rendez-vous uniquement.",msg:"Bonjour, je souhaite prendre rendez-vous.",title:"Cabinet de kinésithérapie"},
+en:{nHome:"Home",nCare:"Treatments",nHours:"Hours",nContact:"Contact",role:"· Physiotherapist",h1:"Get moving again, pain-free.",lead:"I’m a qualified physiotherapist. Book an appointment for pain relief, rehabilitation after injury or surgery, and help moving freely again.",cta:"Book on WhatsApp",seeAddr:"See address",hoursT:"Opening hours",d1:"Monday – Friday",h1v:"9am – 7pm",d2:"Saturday",h2v:"9am – 1pm",d3:"Sunday",h3v:"Closed",careT:"Treatments",c1t:"Back and neck pain",c1d:"Lower back pain, neck pain, sciatica, herniated disc.",c2t:"Injury rehabilitation",c2d:"Sprains, fractures, tendinitis, knee or shoulder surgery.",c3t:"Sports physiotherapy",c3d:"Gradual return to sport, prevention and recovery.",c4t:"Neurological rehabilitation",c4d:"Follow-up after stroke, balance problems, facial paralysis.",contactT:"Address and contact",addrL:"Address",telL:"Phone / WhatsApp",write:"Message on WhatsApp",route:"Get directions",openMap:"Open in Google Maps",foot:"© Physiotherapy clinic. By appointment only.",msg:"Hello, I would like to book an appointment.",title:"Physiotherapy clinic"},
+ar:{nHome:"الرئيسية",nCare:"العلاجات",nHours:"الأوقات",nContact:"اتصل بنا",role:"· أخصائي العلاج الطبيعي",h1:"استعد حركتك بدون ألم.",lead:"أخصائي علاج طبيعي مُجاز. أستقبلكم بموعد مسبق لعلاج الآلام وإعادة التأهيل بعد الإصابة أو العملية الجراحية، ولمساعدتكم على الحركة بحرية.",cta:"احجز موعدًا عبر واتساب",seeAddr:"عرض العنوان",hoursT:"أوقات العمل",d1:"من الاثنين إلى الجمعة",h1v:"9:00 – 19:00",d2:"السبت",h2v:"9:00 – 13:00",d3:"الأحد",h3v:"مغلق",careT:"الحالات التي نعالجها",c1t:"آلام الظهر والرقبة",c1d:"آلام أسفل الظهر، الرقبة، عرق النسا، الانزلاق الغضروفي.",c2t:"إعادة التأهيل بعد الإصابة",c2d:"الالتواء، الكسور، التهاب الأوتار، جراحة الركبة أو الكتف.",c3t:"العلاج الطبيعي الرياضي",c3d:"عودة تدريجية للرياضة، الوقاية والاستشفاء.",c4t:"التأهيل العصبي",c4d:"المتابعة بعد السكتة الدماغية، اضطرابات التوازن، شلل الوجه.",contactT:"العنوان والتواصل",addrL:"العنوان",telL:"الهاتف / واتساب",write:"راسلنا على واتساب",route:"الاتجاهات",openMap:"فتح في خرائط جوجل",foot:"© عيادة العلاج الطبيعي. بموعد مسبق فقط.",msg:"السلام عليكم، أرغب في حجز موعد.",title:"عيادة العلاج الطبيعي"}
+};
+function setLang(l){
+  var t=T[l]||T.fr;
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==="ar")?"rtl":"ltr";
+  document.querySelectorAll("[data-i18n]").forEach(function(e){e.textContent=t[e.getAttribute("data-i18n")]});
+  document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
+  document.getElementById("name").textContent=CONFIG.name[l];
+  document.getElementById("name2").textContent=CONFIG.name[l];
+  document.getElementById("addr").textContent=CONFIG.address[l];
+  document.getElementById("tel").textContent=CONFIG.phoneDisplay;
+  document.title=t.title+" – "+CONFIG.name[l];
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.href="https://wa.me/"+CONFIG.phoneIntl+"?text="+encodeURIComponent(t.msg);a.target="_blank";a.rel="noopener";
+  });
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+var q=encodeURIComponent(CONFIG.mapQuery);
+document.getElementById("mapbtn").href="https://www.google.com/maps/search/?api=1&query="+q;
+document.getElementById("route").href="https://www.google.com/maps/dir/?api=1&destination="+q;
+document.querySelectorAll("[data-lang]").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+var saved=null;try{saved=localStorage.getItem("lang")}catch(e){}
+var nav=(navigator.language||"fr").slice(0,2);
+setLang(T[saved]?saved:(T[nav]?nav:"fr"));
+</script>
+</body>
+</html>
