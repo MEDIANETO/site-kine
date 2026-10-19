@@ -94,6 +94,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav a:hover{border-color:var(--brand)}
 .nav a.wa{background:var(--wa);color:var(--wa-ink);border-color:var(--wa)}
 [id]{scroll-margin-top:130px}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.gal img{width:100%;height:auto;border-radius:18px;display:block;background:var(--soft)}
+@media (max-width:480px){.gal{gap:8px}.gal img{border-radius:12px}}
 </style>
 </head>
 <body>
@@ -151,6 +153,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </div>
 </section>
 
+<section id="gallery">
+  <div class="wrap">
+    <h2 data-i18n="galT"></h2>
+    <div class="gal">
+      <img src="images/soin-1.jpg" data-alt="g1" alt="" loading="lazy" width="698" height="378">
+      <img src="images/soin-2.jpg" data-alt="g2" alt="" loading="lazy" width="698" height="378">
+      <img src="images/soin-3.jpg" data-alt="g3" alt="" loading="lazy" width="698" height="378">
+      <img src="images/soin-4.jpg" data-alt="g4" alt="" loading="lazy" width="698" height="378">
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <h2 data-i18n="contactT"></h2>
@@ -192,9 +206,9 @@ var CONFIG = {
   mapQuery: "24 Rue des Orangers, Résidence Atlas"
 };
 var T = {
-fr:{nHome:"Accueil",nCare:"Soins",nHours:"Horaires",nContact:"Contact",role:"· Kinésithérapeute",h1:"Retrouvez votre mobilité, sans douleur.",lead:"Kinésithérapeute diplômé, je vous reçois sur rendez-vous pour traiter vos douleurs, votre rééducation après blessure ou opération, et vous aider à bouger librement.",cta:"Prendre RDV sur WhatsApp",seeAddr:"Voir l’adresse",hoursT:"Horaires du cabinet",d1:"Lundi – Vendredi",h1v:"9h – 19h",d2:"Samedi",h2v:"9h – 13h",d3:"Dimanche",h3v:"Fermé",careT:"Prises en charge",c1t:"Douleurs du dos et du cou",c1d:"Lombalgie, cervicalgie, sciatique, hernie discale.",c2t:"Rééducation après blessure",c2d:"Entorse, fracture, tendinite, chirurgie du genou ou de l’épaule.",c3t:"Kinésithérapie du sport",c3d:"Reprise progressive, prévention et récupération.",c4t:"Rééducation neurologique",c4d:"Suivi après AVC, troubles de l’équilibre, paralysie faciale.",contactT:"Adresse et contact",addrL:"Adresse",telL:"Téléphone / WhatsApp",write:"Écrire sur WhatsApp",route:"Itinéraire",openMap:"Ouvrir dans Google Maps",foot:"© Cabinet de kinésithérapie. Sur rendez-vous uniquement.",msg:"Bonjour, je souhaite prendre rendez-vous.",title:"Cabinet de kinésithérapie"},
-en:{nHome:"Home",nCare:"Treatments",nHours:"Hours",nContact:"Contact",role:"· Physiotherapist",h1:"Get moving again, pain-free.",lead:"I’m a qualified physiotherapist. Book an appointment for pain relief, rehabilitation after injury or surgery, and help moving freely again.",cta:"Book on WhatsApp",seeAddr:"See address",hoursT:"Opening hours",d1:"Monday – Friday",h1v:"9am – 7pm",d2:"Saturday",h2v:"9am – 1pm",d3:"Sunday",h3v:"Closed",careT:"Treatments",c1t:"Back and neck pain",c1d:"Lower back pain, neck pain, sciatica, herniated disc.",c2t:"Injury rehabilitation",c2d:"Sprains, fractures, tendinitis, knee or shoulder surgery.",c3t:"Sports physiotherapy",c3d:"Gradual return to sport, prevention and recovery.",c4t:"Neurological rehabilitation",c4d:"Follow-up after stroke, balance problems, facial paralysis.",contactT:"Address and contact",addrL:"Address",telL:"Phone / WhatsApp",write:"Message on WhatsApp",route:"Get directions",openMap:"Open in Google Maps",foot:"© Physiotherapy clinic. By appointment only.",msg:"Hello, I would like to book an appointment.",title:"Physiotherapy clinic"},
-ar:{nHome:"الرئيسية",nCare:"العلاجات",nHours:"الأوقات",nContact:"اتصل بنا",role:"· أخصائي العلاج الطبيعي",h1:"استعد حركتك بدون ألم.",lead:"أخصائي علاج طبيعي مُجاز. أستقبلكم بموعد مسبق لعلاج الآلام وإعادة التأهيل بعد الإصابة أو العملية الجراحية، ولمساعدتكم على الحركة بحرية.",cta:"احجز موعدًا عبر واتساب",seeAddr:"عرض العنوان",hoursT:"أوقات العمل",d1:"من الاثنين إلى الجمعة",h1v:"9:00 – 19:00",d2:"السبت",h2v:"9:00 – 13:00",d3:"الأحد",h3v:"مغلق",careT:"الحالات التي نعالجها",c1t:"آلام الظهر والرقبة",c1d:"آلام أسفل الظهر، الرقبة، عرق النسا، الانزلاق الغضروفي.",c2t:"إعادة التأهيل بعد الإصابة",c2d:"الالتواء، الكسور، التهاب الأوتار، جراحة الركبة أو الكتف.",c3t:"العلاج الطبيعي الرياضي",c3d:"عودة تدريجية للرياضة، الوقاية والاستشفاء.",c4t:"التأهيل العصبي",c4d:"المتابعة بعد السكتة الدماغية، اضطرابات التوازن، شلل الوجه.",contactT:"العنوان والتواصل",addrL:"العنوان",telL:"الهاتف / واتساب",write:"راسلنا على واتساب",route:"الاتجاهات",openMap:"فتح في خرائط جوجل",foot:"© عيادة العلاج الطبيعي. بموعد مسبق فقط.",msg:"السلام عليكم، أرغب في حجز موعد.",title:"عيادة العلاج الطبيعي"}
+fr:{galT:"Au cabinet",g1:"Soin de l’épaule",g2:"Mobilisation du bras et de l’épaule",g3:"Massage du dos",g4:"Échographie du genou",nHome:"Accueil",nCare:"Soins",nHours:"Horaires",nContact:"Contact",role:"· Kinésithérapeute",h1:"Retrouvez votre mobilité, sans douleur.",lead:"Kinésithérapeute diplômé, je vous reçois sur rendez-vous pour traiter vos douleurs, votre rééducation après blessure ou opération, et vous aider à bouger librement.",cta:"Prendre RDV sur WhatsApp",seeAddr:"Voir l’adresse",hoursT:"Horaires du cabinet",d1:"Lundi – Vendredi",h1v:"9h – 19h",d2:"Samedi",h2v:"9h – 13h",d3:"Dimanche",h3v:"Fermé",careT:"Prises en charge",c1t:"Douleurs du dos et du cou",c1d:"Lombalgie, cervicalgie, sciatique, hernie discale.",c2t:"Rééducation après blessure",c2d:"Entorse, fracture, tendinite, chirurgie du genou ou de l’épaule.",c3t:"Kinésithérapie du sport",c3d:"Reprise progressive, prévention et récupération.",c4t:"Rééducation neurologique",c4d:"Suivi après AVC, troubles de l’équilibre, paralysie faciale.",contactT:"Adresse et contact",addrL:"Adresse",telL:"Téléphone / WhatsApp",write:"Écrire sur WhatsApp",route:"Itinéraire",openMap:"Ouvrir dans Google Maps",foot:"© Cabinet de kinésithérapie. Sur rendez-vous uniquement.",msg:"Bonjour, je souhaite prendre rendez-vous.",title:"Cabinet de kinésithérapie"},
+en:{galT:"At the clinic",g1:"Shoulder treatment",g2:"Arm and shoulder mobilisation",g3:"Back massage",g4:"Knee ultrasound",nHome:"Home",nCare:"Treatments",nHours:"Hours",nContact:"Contact",role:"· Physiotherapist",h1:"Get moving again, pain-free.",lead:"I’m a qualified physiotherapist. Book an appointment for pain relief, rehabilitation after injury or surgery, and help moving freely again.",cta:"Book on WhatsApp",seeAddr:"See address",hoursT:"Opening hours",d1:"Monday – Friday",h1v:"9am – 7pm",d2:"Saturday",h2v:"9am – 1pm",d3:"Sunday",h3v:"Closed",careT:"Treatments",c1t:"Back and neck pain",c1d:"Lower back pain, neck pain, sciatica, herniated disc.",c2t:"Injury rehabilitation",c2d:"Sprains, fractures, tendinitis, knee or shoulder surgery.",c3t:"Sports physiotherapy",c3d:"Gradual return to sport, prevention and recovery.",c4t:"Neurological rehabilitation",c4d:"Follow-up after stroke, balance problems, facial paralysis.",contactT:"Address and contact",addrL:"Address",telL:"Phone / WhatsApp",write:"Message on WhatsApp",route:"Get directions",openMap:"Open in Google Maps",foot:"© Physiotherapy clinic. By appointment only.",msg:"Hello, I would like to book an appointment.",title:"Physiotherapy clinic"},
+ar:{galT:"في العيادة",g1:"علاج الكتف",g2:"تحريك الذراع والكتف",g3:"تدليك الظهر",g4:"فحص الركبة بالموجات فوق الصوتية",nHome:"الرئيسية",nCare:"العلاجات",nHours:"الأوقات",nContact:"اتصل بنا",role:"· أخصائي العلاج الطبيعي",h1:"استعد حركتك بدون ألم.",lead:"أخصائي علاج طبيعي مُجاز. أستقبلكم بموعد مسبق لعلاج الآلام وإعادة التأهيل بعد الإصابة أو العملية الجراحية، ولمساعدتكم على الحركة بحرية.",cta:"احجز موعدًا عبر واتساب",seeAddr:"عرض العنوان",hoursT:"أوقات العمل",d1:"من الاثنين إلى الجمعة",h1v:"9:00 – 19:00",d2:"السبت",h2v:"9:00 – 13:00",d3:"الأحد",h3v:"مغلق",careT:"الحالات التي نعالجها",c1t:"آلام الظهر والرقبة",c1d:"آلام أسفل الظهر، الرقبة، عرق النسا، الانزلاق الغضروفي.",c2t:"إعادة التأهيل بعد الإصابة",c2d:"الالتواء، الكسور، التهاب الأوتار، جراحة الركبة أو الكتف.",c3t:"العلاج الطبيعي الرياضي",c3d:"عودة تدريجية للرياضة، الوقاية والاستشفاء.",c4t:"التأهيل العصبي",c4d:"المتابعة بعد السكتة الدماغية، اضطرابات التوازن، شلل الوجه.",contactT:"العنوان والتواصل",addrL:"العنوان",telL:"الهاتف / واتساب",write:"راسلنا على واتساب",route:"الاتجاهات",openMap:"فتح في خرائط جوجل",foot:"© عيادة العلاج الطبيعي. بموعد مسبق فقط.",msg:"السلام عليكم، أرغب في حجز موعد.",title:"عيادة العلاج الطبيعي"}
 };
 function setLang(l){
   var t=T[l]||T.fr;
@@ -202,6 +216,7 @@ function setLang(l){
   document.documentElement.dir=(l==="ar")?"rtl":"ltr";
   document.querySelectorAll("[data-i18n]").forEach(function(e){e.textContent=t[e.getAttribute("data-i18n")]});
   document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
+  document.querySelectorAll("[data-alt]").forEach(function(e){e.alt=t[e.getAttribute("data-alt")]});
   document.getElementById("name").textContent=CONFIG.name[l];
   document.getElementById("name2").textContent=CONFIG.name[l];
   document.getElementById("addr").textContent=CONFIG.address[l];
